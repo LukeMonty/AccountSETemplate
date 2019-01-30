@@ -1,11 +1,8 @@
 package com.qa.persistence.repository;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import org.junit.experimental.theories.FromDataPoints;
 
 import com.qa.persistence.domain.Account;
 import com.qa.util.JSONUtil;
