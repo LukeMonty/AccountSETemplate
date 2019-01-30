@@ -18,12 +18,12 @@ public class AccountServiceTest {
 
 	@Before
 	public void setup() {
-
+		account = new Account("Luke", "Monty", 111L);
 	}
 
 	@Test
 	public void addAccountTest() {
-		account = new Account("firstName", "lastName", (long) 111);
+		account = new Account("firstName", "lastName", 111L);
 		String ret = repo.createAccount(json.getJSONForObject(account));
 		assertEquals("{\"firstName\":\"firstName\",\"lastName\":\"lastName\",\"accountNumber\":111}", ret);
 
@@ -31,7 +31,7 @@ public class AccountServiceTest {
 
 	@Test
 	public void add2AccountTest() {
-		account = new Account("Luke", "Monty", (long) 111);
+		account = new Account("Luke", "Monty", 111L);
 		String ret = repo.createAccount(json.getJSONForObject(account));
 		assertEquals("{\"firstName\":\"Luke\",\"lastName\":\"Monty\",\"accountNumber\":111}", ret);
 
@@ -39,18 +39,25 @@ public class AccountServiceTest {
 
 	@Test
 	public void removeAccountTest() {
-		account = new Account("Luke", "Monty", (long) 111);
-		String returnValue = repo.deleteAccount((long)0);
-		assertEquals("Removed: 0", returnValue);
+		repo.createAccount(json.getJSONForObject(account));
+		String returnValue = repo.deleteAccount(0L);
+		assertEquals("Removed: Luke", returnValue);
 	}
 
 	@Test
 	public void remove2AccountTest() {
-		account = new Account("Luke", "Monty", (long) 111);
-		account = new Account("Luke1", "Monty", (long) 111);
+		Account account2 = new Account("h", "Monty", 111L);
+		repo.createAccount(json.getJSONForObject(account));
+		repo.createAccount(json.getJSONForObject(account2));
+		String returnValue = repo.deleteAccount(1L);
+		assertEquals("Removed: h", returnValue);
+
+	}
+	
+	@Test
+	public void testInteratingThroughMap() {
 		
-		String returnValue = repo.deleteAccount((long)1);
-		assertEquals("Removed: 1", returnValue);
+		
 		
 	}
 
