@@ -2,7 +2,7 @@ package com.qa.persistence.repository;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
+
 
 import com.qa.persistence.domain.Account;
 import com.qa.util.JSONUtil;
@@ -13,7 +13,6 @@ public class AccountMapRepository implements AccountRepository {
 	private JSONUtil json = new JSONUtil();
 	private Long id = (long) 0;
 	private Account acc = new Account();
-	private String append = "";
 
 	public String getAllAccounts() {
 		return json.getJSONForObject(account);
