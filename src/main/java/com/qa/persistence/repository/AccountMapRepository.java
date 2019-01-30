@@ -19,7 +19,7 @@ public class AccountMapRepository implements AccountRepository {
 	private String append = "";
 
 	public String getAllAccounts() {
-		
+
 		for (Entry<Long, Account> pair : account.entrySet()) {
 			append += pair.getValue().toString();
 		}
@@ -31,14 +31,14 @@ public class AccountMapRepository implements AccountRepository {
 		account.put(id, acc);
 		id++;
 		return accountString;
-		
+
 	}
 
 	public String deleteAccount(Long id) {
-		
+
 		String re = account.get(id).getFirstName();
 		account.remove(id);
-		
+
 		return "Removed: " + re;
 	}
 
@@ -47,6 +47,18 @@ public class AccountMapRepository implements AccountRepository {
 		account.get(id).equals(acc);
 
 		return "Updated: " + acc;
+	}
+
+	public int findNumberByFirstName(String string) {
+
+		int counter = 0;
+		for (Account accountInAccount : account.values()) {
+			if (accountInAccount.getFirstName().equals(string)) {
+				counter++;
+			}
+
+		}
+		return counter;
 	}
 
 }

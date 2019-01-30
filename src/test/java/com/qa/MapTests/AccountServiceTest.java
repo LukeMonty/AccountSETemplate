@@ -19,6 +19,7 @@ public class AccountServiceTest {
 	@Before
 	public void setup() {
 		account = new Account("Luke", "Monty", 111L);
+		
 	}
 
 	@Test
@@ -31,7 +32,7 @@ public class AccountServiceTest {
 
 	@Test
 	public void add2AccountTest() {
-		account = new Account("Luke", "Monty", 111L);
+		
 		String ret = repo.createAccount(json.getJSONForObject(account));
 		assertEquals("{\"firstName\":\"Luke\",\"lastName\":\"Monty\",\"accountNumber\":111}", ret);
 
@@ -56,9 +57,9 @@ public class AccountServiceTest {
 	
 	@Test
 	public void testInteratingThroughMap() {
-		
-		
-		
+		repo.createAccount(json.getJSONForObject(account));
+		int returnValue = repo.findNumberByFirstName("Luke");
+		assertEquals(1, returnValue);
 	}
 
 	@Test
