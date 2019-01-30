@@ -16,11 +16,7 @@ public class AccountMapRepository implements AccountRepository {
 	private String append = "";
 
 	public String getAllAccounts() {
-
-		for (Entry<Long, Account> pair : account.entrySet()) {
-			append += pair.getValue().toString();
-		}
-		return append;
+		return json.getJSONForObject(account);
 	}
 
 	public String createAccount(String accountString) {
