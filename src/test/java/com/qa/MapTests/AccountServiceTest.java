@@ -84,12 +84,13 @@ public class AccountServiceTest {
 
 	@Test
 	public void getCountForFirstNamesInAccountWhenZeroOccurances() {
-
+		int returnValue = repo.findNumberByFirstName("Luke");
+		assertEquals(0, returnValue);
 	}
 
 	@Test
 	public void getCountForFirstNamesInAccountWhenOne() {
-
+		
 	}
 
 	@Test
