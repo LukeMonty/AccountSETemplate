@@ -9,7 +9,7 @@ import com.qa.util.JSONUtil;
 
 public class AccountMapRepository implements AccountRepository {
 
-	private Map<Long, Account> account = new HashMap<Long, Account>();
+	private Map<Long, Account> account = new HashMap<>();
 	private JSONUtil json = new JSONUtil();
 	private Long id = (long) 0;
 	private Account acc = new Account();
