@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.inject.Alternative;
+import javax.inject.Inject;
 
 import com.qa.persistence.domain.Account;
 import com.qa.util.JSONUtil;
@@ -12,9 +13,14 @@ import com.qa.util.JSONUtil;
 public class AccountMapRepository implements AccountRepository {
 
 	private Map<Long, Account> account = new HashMap<>();
-	private JSONUtil json = new JSONUtil();
-	private Long id = (long) 0;
-	private Account acc = new Account();
+	
+	@Inject
+	private JSONUtil json;
+	
+	private Long id;
+	
+	@Inject
+	private Account acc;
 
 	public String getAllAccounts() {
 		return json.getJSONForObject(account);
