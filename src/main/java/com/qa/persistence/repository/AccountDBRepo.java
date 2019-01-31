@@ -50,7 +50,6 @@ public class AccountDBRepo implements AccountRepository {
 	public String updateAccount(Long id, String account) {
 
 		Account updated = json.getObjectForJSON(account, Account.class);
-
 		manager.createQuery("UPDATE ACCOUNT SET firstName = " + updated.getFirstName() + ", lastName = "
 				+ updated.getLastName() + " WHERE id = " + id, Account.class);
 		return "Account updated to: " + updated.getFirstName() + " " + updated.getLastName();
