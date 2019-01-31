@@ -16,6 +16,8 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 
+	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -156,6 +158,10 @@
 	</profiles>
 
 	<build>
+	
+		
+			
+	
 		<!-- Maven will append the version to the finalName (which is the name 
 			given to the generated WAR, and hence the context root) -->
 		<finalName>${project.artifactId}</finalName>
@@ -174,6 +180,33 @@
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
 				<version>${version.wildfly.maven.plugin}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.2.201409121644</version>
+				<configuration>
+					<append>true</append>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
