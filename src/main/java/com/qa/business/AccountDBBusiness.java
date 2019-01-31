@@ -16,7 +16,11 @@ public class AccountDBBusiness implements AccountBusinessInterface {
 
 	@Override
 	public String createAccount(String account) {
-		return repo.createAccount(account);
+		if(account.contains("9")) {
+			return "{\"message\": \"This account is blocked\"}";
+		} else {
+			return repo.createAccount(account);
+		}
 	}
 
 	@Override
