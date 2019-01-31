@@ -1,6 +1,5 @@
 package com.qa.persistence.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,20 +10,21 @@ import com.qa.util.JSONUtil;
 @Entity
 public class Account {
 	
-	private JSONUtil json;
-	private Account acc;
+//	@Inject
+//	private JSONUtil json;
+//	
+//	@Inject
+//	private Account acc;
 	
-	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
 	private Long id;
 	private String firstName;
 	private String lastName;
 	private Long accountNumber;
 
 	public Account() {
-		this.firstName = "FIRSTNAME";
-		this.lastName = "LASTNAME";
-		this.accountNumber = (long) 0;
+		
 	}
 
 	public Account(String firstName, String lastName, Long accountNumber) {
@@ -57,9 +57,9 @@ public class Account {
 		this.accountNumber = accountNumber;
 	}
 	
-	public String toString() {
-		return json.getJSONForObject(acc);
-	}
-	
+//	public String toString() {
+//		return json.getJSONForObject(acc);
+//	}
+//	
 
 }
